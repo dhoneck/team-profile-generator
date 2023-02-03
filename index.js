@@ -2,4 +2,4 @@ const Prompter = require('./src/prompter');
 
 const prompter = new Prompter();
 
-prompter.gatherMemberInfo('Manager');
+prompter.startGatheringInfo();

@@ -60,6 +60,15 @@ const ALL_INTERN_QUETIONS = [...EMPLOYEE_QUESTIONS, ...INTERN_QUESTIONS];
 
 // Class to handle inquirer prompts
 class Prompter {
+  constructor() {
+    this.data = [];
+  }
+
+  // Start adding team members by starting with the manager
+  startGatheringInfo() {
+    this.gatherMemberInfo('Manager');
+  }
+
   // Use inquirer to gather team member information
   gatherMemberInfo(memberType) {
     // Select which questions to ask based on member type
@@ -76,8 +85,11 @@ class Prompter {
     inquirer
       .prompt(questions)
       .then(data => {
-          console.log(data);
-          // TODO: Store data
+          console.log("Member information collected");
+          // Add member info to data array
+          this.data.push(data);
+
+          // Show menu so user can pick next action
           this.showMenu();
       });
   }
