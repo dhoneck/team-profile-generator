@@ -1,6 +1,14 @@
 // Import inquirer module
 const inquirer = require("inquirer");
 
+// Import classes
+const Manager = require("../lib/manager");
+const Engineer = require("../lib/engineer");
+const Intern = require("../lib/intern");
+
+// Import function
+const generateAndWriteFiles = require("./generateHTML");
+
 // Define inquirer questions
 const EMPLOYEE_QUESTIONS = [
   {
@@ -61,12 +69,13 @@ const ALL_INTERN_QUETIONS = [...EMPLOYEE_QUESTIONS, ...INTERN_QUESTIONS];
 // Class to handle inquirer prompts
 class Prompter {
   constructor() {
-    this.data = [];
+    // Holds manager, engineer, and intern objects
+    this.members = [];
   }
 
   // Start adding team members by starting with the manager
   startGatheringInfo() {
-    this.gatherMemberInfo('Manager');
+    this.gatherMemberInfo("Manager");
   }
 
   // Use inquirer to gather team member information
@@ -85,9 +94,18 @@ class Prompter {
     inquirer
       .prompt(questions)
       .then(data => {
-          console.log("Member information collected");
+          console.log("Member information collected\n");
+          let member;
+          if (memberType == "Manager") {
+            member = new Manager(data.name, data.employeeID, data.email, data.officeNum);         
+          } else if (memberType == "Engineer") {
+            member = new Engineer(data.name, data.employeeID, data.email, data.github);       
+          } else if (memberType == "Intern") {
+            member = new Intern(data.name, data.employeeID, data.email, data.school);
+          }
+      
           // Add member info to data array
-          this.data.push(data);
+          this.members.push(member);
 
           // Show menu so user can pick next action
           this.showMenu();
@@ -106,8 +124,7 @@ class Prompter {
         } else if (nextAction == "Add intern") {
           this.gatherMemberInfo("Intern");
         } else if (nextAction == "Generate HTML Page") {
-          console.log("Generating HTML");
-          // TODO: Call a function to generate the HTML page
+          generateAndWriteFiles(this.members);
         }
       });
   }
