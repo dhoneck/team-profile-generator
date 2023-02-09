@@ -16,7 +16,7 @@ This Node.JS application collects information about project team members and cre
 You must install Node.JS (I used version 16.19.0) on your computer and enter 'npm i' with command line to install the required module.
 
 ## Usage
-Run 'node <path/to/index.js>' with command line, fill in prompts, and see the generated HTML page with the team member information on it.
+Run 'node <path/to/index.js>' with command line, fill in prompts, and see the generated HTML page with the team member information on it. A directory called `dist` will be created and the file `teams.html` will be added to it. If the filename already exists, a new file such as `teams1.html` or `teams2.html` will be created automatically.
 
 ## License
 This project is covered by the following license: [MIT License](https://opensource.org/licenses/MIT)
@@ -25,7 +25,7 @@ This project is covered by the following license: [MIT License](https://opensour
 If you would like to contribute to the project, please contact me with one of the methods listed in the 'Questions' section.
 
 ## Tests
-Tests are located in the 'tests' folder. There is one test for each of the team member types (manager, engineer, intern) as well as one for their parent class (employee). You can use JEST to run the tests. Run 'npm test' to run all of the tests or 'npm test <specific_test_file>' to run an individual test.
+Tests are located in the `__tests__` folder. There is one test for each of the team member types (manager, engineer, intern) as well as one for their parent class (employee). You can use JEST to run the tests. Run 'npm test' to run all of the tests or 'npm test <specific_test_file>' to run an individual test.
 
 ## Questions
 Contact me at:
