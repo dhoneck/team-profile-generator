@@ -2,7 +2,7 @@
 # Team Profile Generator
 
 ## Description
-This Node.JS application collects information about project team members and creates an HTML page displaying their information. Team members can be a manager, engineer, or intern.
+This Node.JS application collects information about project team members and creates an HTML page displaying their information. Team members can be a manager, engineer, or intern. View the [demo](https://drive.google.com/file/d/1E5Ky7GBsLbXCLJztSSkZejC-jaalZSmi/view).
 
 ## Table of Contents
 1. [Installation](#installation)
