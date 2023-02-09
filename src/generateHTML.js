@@ -104,10 +104,29 @@ function generateAndWriteFiles(data) {
   // Generate final html content
   let generatedHTML = generateHTML(data);
 
+  // Find an unused filename to write to
+  const filePrefex = 'team';
+  let fileToCheck = filePrefex;
+  let counter = 0;
+  while (true) {
+    var pathToCheck = path.join(__dirname, `../dist/${fileToCheck}.html`);
+    console.log('Checking path:');
+    console.log(pathToCheck);
+    if (fs.existsSync(pathToCheck)) {
+      console.log('File exists - try another filename' + '\n');
+      counter++;
+      fileToCheck = filePrefex + counter;
+    } else {
+      console.log('File doesn\'t exist' + '\n');
+      break;
+    }
+    
+  }
+
   // Write html
-  console.log('Attempting to write index.html');
-  fs.writeFile('index.html', generatedHTML, (err) =>
-  err ? console.log(err) : console.log('index.html created successfully')
+  console.log(`Attempting to write ${pathToCheck}`);
+  fs.writeFile(pathToCheck, generatedHTML, (err) =>
+  err ? console.log(err) : console.log(`File created successfully`)
   );
 }
 

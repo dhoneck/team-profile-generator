@@ -75,6 +75,7 @@ class Prompter {
 
   // Start adding team members by starting with the manager
   startGatheringInfo() {
+    console.log('Start by adding the manager of the team')
     this.gatherMemberInfo("Manager");
   }
 
