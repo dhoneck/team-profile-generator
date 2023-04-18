@@ -13,10 +13,10 @@ This Node.JS application collects information about project team members and cre
 6. [Questions](#questions)
 
 ## Installation
-You must install Node.JS (I used version 16.19.0) on your computer and enter 'npm i' with command line to install the required module.
+You must install Node.JS (I used version 16.19.0) on your computer and enter `npm i` with command line to install the required module.
 
 ## Usage
-Run 'node <path/to/index.js>' with command line, fill in prompts, and see the generated HTML page with the team member information on it. A directory called `dist` will be created and the file `team.html` will be added to it. If the filename already exists, a new file such as `team1.html` or `team2.html` will be created automatically.
+Run `node <path/to/index.js>` with command line, fill in prompts, and see the generated HTML page with the team member information on it. There is a directory called `dist` for storing the HTML files. After running the program, a file named `team.html` will be added to it. If the filename already exists, a new file such as `team1.html` or `team2.html` will be created automatically.
 
 ## License
 This project is covered by the following license: [MIT License](https://opensource.org/licenses/MIT)
